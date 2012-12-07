@@ -21,6 +21,23 @@ div {
     height: 1.75em;
 }
 
+.info div {
+    height: 100%;
+    width: 45%;
+    padding-top: .25em;
+    display: inline-block;
+}
+
+.info div:first-child {
+    padding-left: 2em;
+    text-align: left;
+}
+
+.info div:last-child {
+    padding-right: 2em;
+    text-align: right;
+}
+
 .schedule {
     overflow: scroll;
     height: -moz-calc(100% - 5.25em);
@@ -32,14 +49,17 @@ div {
 
 .selectors div {
     display: inline-block;
+    width: 45%;
 }
 
 .from {
     text-align: left;
+    padding-left: 2em;
 }
 
 .to {
     text-align: right;
+    padding-right: 2em;
 }
 
 .menu {
@@ -48,8 +68,11 @@ div {
 }
 
 .element {
+    height: 100%;
     display: inline-block;
     border-right: 1px solid #fff;
+    text-align: center;
+    width: 45%;
 }
 
 .element:last-child {
