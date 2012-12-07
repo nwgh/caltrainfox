@@ -8,10 +8,10 @@
     </head>
     <body>
         <div class="info">
-            <div class="info_element">
+            <div class="element">
                 Caltrain <span id="schedule_type">Weekday</span> Schedule
             </div>
-            <div class="info_element">
+            <div class="element">
                 $<span id="fare">0.00</span>
             </div>
         </div>
@@ -20,16 +20,26 @@
         </div>
         <div class="selectors">
             <!-- These selectors get populated dynamically -->
-            <select id="station_from"></select>
-            <select id="station_to"></select>
+            <div class="from">
+                <label for="station_from">From</label>
+                <select id="station_from" name="station_from"></select>
+            </div>
+            <div class="to">
+                <label for="station_to">To</label>
+                <select id="station_to" name="station_to"></select>
+            </div>
         </div>
         <div class="menu">
-            <div id="reverse_menu" class="menu_element">
+            <div id="reverse_menu" class="element">
                 Reverse Direction
             </div>
-            <div id="schedule_type_menu" class="menu_element">
+            <div id="schedule_type_menu" class="element">
                 Show <span id="schedule_type_selector">Weekend</span> Schedule
             </div>
         </div>
+        <script type="application/javascript" src="jquery-1.8.3.js"></script>
+        <script type="application/javascript;version=1.8" src="caltrainfox.js"></script>
+        <script type="application/javascript;version=1.8" src="stops.js"></script>
+        <script type="application/javascript;version=1.8" src="stations.js"></script>
     </body>
 </html>
