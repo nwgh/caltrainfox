@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="caltrainfox.css" type="text/css"/>
+        <title>CaltrainFox</title>
+    </head>
+    <body>
+        <div class="info">
+            <div class="info_element">
+                Caltrain <span id="schedule_type">Weekday</span> Schedule
+            </div>
+            <div class="info_element">
+                $<span id="fare">0.00</span>
+            </div>
+        </div>
+        <div id="schedule" class="schedule">
+            <!-- This is filled in dynamically -->
+        </div>
+        <div class="selectors">
+            <!-- These selectors get populated dynamically -->
+            <select id="station_from"></select>
+            <select id="station_to"></select>
+        </div>
+        <div class="menu">
+            <div id="reverse_menu" class="menu_element">
+                Reverse Direction
+            </div>
+            <div id="schedule_type_menu" class="menu_element">
+                Show <span id="schedule_type_selector">Weekend</span> Schedule
+            </div>
+        </div>
+    </body>
+</html>
