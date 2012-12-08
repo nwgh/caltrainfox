@@ -161,9 +161,7 @@ var CaltrainFox = {
         this.do_update();
     },
 
-    // The callback for when the user changes between weekend & weekday
-    change_schedule_type: function change_schedule_type() {
-        this.is_weekend = !this.is_weekend;
+    update_wd_we_display: function update_wd_we_display() {
         var sel = $("#schedule_type_selector")[0];
         var cur = $("#schedule_type")[0];
         if (this.is_weekend) {
@@ -173,6 +171,13 @@ var CaltrainFox = {
             sel.innerHTML = "Weekend";
             cur.innerHTML = "Weekday";
         }
+    },
+
+    // The callback for when the user changes between weekend & weekday
+    change_schedule_type: function change_schedule_type() {
+        this.is_weekend = !this.is_weekend;
+
+        this.update_wd_we_display();
 
         localStorage.setItem("is_weekend", this.is_weekend);
 
@@ -241,6 +246,7 @@ var CaltrainFox = {
 
         if (is_weekend === "true") {
             this.is_weekend = true;
+            this.update_wd_we_display();
         }
 
         this.do_update();
