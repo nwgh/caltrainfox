@@ -32,6 +32,44 @@ var CaltrainFox = {
         return "" + fare + ".00";
     },
 
+    format_time: function format_time(time) {
+        var hours = Math.floor(time / 100);
+        var minutes = time % 100;
+        var ampm = "am";
+        if (hours >= 12) {
+            ampm = "pm";
+        }
+        if (hours > 12) {
+            hours -= 12;
+        }
+
+        var rval = "" + hours + ":";
+        if (minutes < 10) {
+            rval += "0";
+        }
+        rval = rval + minutes + " " + ampm;
+        return rval;
+    },
+
+    format_duration: function format_duration(start_time, stop_time) {
+        var start_hours = Math.floor(start_time / 100);
+        var start_minutes = start_time % 100;
+        var stop_hours = Math.floor(stop_time / 100);
+        var stop_minutes = stop_time % 100;
+
+        var start = (start_hours * 60) + start_minutes;
+        var stop = (stop_hours * 60) + start_minutes;
+
+        if (stop < start) {
+            // This train ends some time in the am of the day after it leaves
+            stop = stop + (24 * 60);
+        }
+
+        var duration = stop - start;
+
+        return "(" + duration + " min)";
+    },
+
     populate_timetable: function populate_timetable(trains) {
         // TODO - style this better
         var schedule = $("#schedule");
@@ -45,9 +83,30 @@ var CaltrainFox = {
         }
 
         for (var t of trains) {
-            var info = "#" + t["train"] + " l:" + t["stops"][this.station_from] +
-                " a:" + t["stops"][this.station_to] + "<br>";
-            schedule.append(info);
+            var entry = $("<div></div>");
+
+            var time = $("<div></div>");
+            var start_time = t.stops[this.station_from];
+            var stop_time = t.stops[this.station_to];
+            var time_str = this.format_time(start_time);
+            time_str += " - ";
+            time_str += this.format_time(stop_time);
+            time_str += " ";
+            time_str += this.format_duration(start_time, stop_time);
+            time.append(time_str);
+
+            var train = $("<div></div>");
+            if (t.train[0] === "2") {
+                train.addClass("limited");
+            } else if (t.train[0] === "3") {
+                train.addClass("bullet");
+            }
+            train.append("#" + t.train);
+
+            entry.append(time);
+            entry.append(train);
+
+            schedule.append(entry);
         }
     },
 

@@ -43,6 +43,41 @@ div {
     height: -moz-calc(100% - 5.25em);
 }
 
+.schedule>div {
+    border-bottom: 1px solid #fff;
+    height: 1.75em;
+    padding-top: .25em;
+}
+
+.schedule>div>div {
+    display: inline-block;
+    height: 100%;
+}
+
+.schedule>div>div:first-child {
+    padding-left: 2em;
+    width: 45%;
+    text-align: left;
+}
+
+.schedule>div>div:last-child {
+    padding-right: 2em;
+    width: 45%;
+    text-align: right;
+}
+
+.limited {
+    color: yellow;
+}
+
+.bullet {
+    color: red;
+}
+
+.schedule>div:last-child {
+    border-bottom: none;
+}
+
 .selectors {
     height: 1.75em;
 }
