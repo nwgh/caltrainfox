@@ -2,12 +2,12 @@
     "version": "0.1",
     "name": "CaltrainFox",
     "description": "Caltrain Schedule for FirefoxOS",
-    "launch_path": "/index.html",
+    "launch_path": "/caltrainfox/index.html",
     "icons": {
-        "16": "/caltrainfox-16.png",
-        "32": "/caltrainfox-32.png",
-        "64": "/caltrainfox-64.png",
-        "128": "/caltrainfox-128.png"
+        "16": "/caltrainfox/caltrainfox-16.png",
+        "32": "/caltrainfox/caltrainfox-32.png",
+        "64": "/caltrainfox/caltrainfox-64.png",
+        "128": "/caltrainfox/caltrainfox-128.png"
     },
     "developer": {
         "name": "Nick Hurley",
