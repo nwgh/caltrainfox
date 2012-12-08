@@ -1,0 +1,19 @@
+{
+    "version": "0.1",
+    "name": "CaltrainFox",
+    "description": "Caltrain Schedule for FirefoxOS",
+    "launch_path": "/index.html",
+    "icons": {
+        "16": "/caltrainfox-16.png",
+        "32": "/caltrainfox-32.png",
+        "64": "/caltrainfox-64.png",
+        "128": "/caltrainfox-128.png"
+    },
+    "developer": {
+        "name": "Nick Hurley",
+        "url": "http://todesschaf.org"
+    },
+    "installs_allowed_from": ["*"],
+    "orientation": "portrait",
+    "fullscreen": "true"
+}
