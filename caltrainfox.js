@@ -36,10 +36,10 @@ var CaltrainFox = {
         var hours = Math.floor(time / 100);
         var minutes = time % 100;
         var ampm = "am";
-        if (hours >= 12) {
+        if (hours >= 12 && hours < 24) {
             ampm = "pm";
         }
-        if (hours > 12) {
+        while (hours > 12) {
             hours -= 12;
         }
 
@@ -58,7 +58,7 @@ var CaltrainFox = {
         var stop_minutes = stop_time % 100;
 
         var start = (start_hours * 60) + start_minutes;
-        var stop = (stop_hours * 60) + start_minutes;
+        var stop = (stop_hours * 60) + stop_minutes;
 
         if (stop < start) {
             // This train ends some time in the am of the day after it leaves
@@ -66,8 +66,15 @@ var CaltrainFox = {
         }
 
         var duration = stop - start;
+        var hours = Math.floor(duration / 60);
+        var minutes = duration % 60;
+        var rval = "(";
+        if (hours) {
+            rval = rval + hours + "h";
+        }
+        rval = rval + minutes + "m)";
 
-        return "(" + duration + " min)";
+        return rval;
     },
 
     populate_timetable: function populate_timetable(trains) {
