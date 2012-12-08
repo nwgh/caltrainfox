@@ -78,15 +78,23 @@ var CaltrainFox = {
     },
 
     populate_timetable: function populate_timetable(trains) {
-        // TODO - style this better
         var schedule = $("#schedule");
-        if (trains.length === 0) {
-            schedule.innerHTML = "No Trains Found";
-            return;
-        }
 
         while (schedule[0].firstChild) {
             schedule[0].removeChild(schedule[0].firstChild);
+        }
+
+        if (trains.length === 0) {
+            var wrapper = $("<div></div>");
+            wrapper.addClass("error_wrapper");
+
+            var error = $("<div></div>");
+            error.addClass("error");
+            error.append("No Trains Found");
+
+            wrapper.append(error);
+            schedule.append(wrapper);
+            return;
         }
 
         for (var t of trains) {
