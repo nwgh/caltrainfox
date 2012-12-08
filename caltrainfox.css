@@ -43,26 +43,25 @@ div {
     height: -moz-calc(100% - 5.25em);
 }
 
-.schedule>div {
+.entry {
     border-bottom: 1px solid #fff;
     height: 1.75em;
     padding-top: .25em;
 }
 
-.schedule>div>div {
+.time, .train {
     display: inline-block;
     height: 100%;
+    width: 45%;
 }
 
-.schedule>div>div:first-child {
+.time {
     padding-left: 2em;
-    width: 45%;
     text-align: left;
 }
 
-.schedule>div>div:last-child {
+.train {
     padding-right: 2em;
-    width: 45%;
     text-align: right;
 }
 

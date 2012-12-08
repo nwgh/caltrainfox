@@ -84,8 +84,10 @@ var CaltrainFox = {
 
         for (var t of trains) {
             var entry = $("<div></div>");
+            entry.addClass("entry");
 
             var time = $("<div></div>");
+            time.addClass("time");
             var start_time = t.stops[this.station_from];
             var stop_time = t.stops[this.station_to];
             var time_str = this.format_time(start_time);
@@ -96,6 +98,7 @@ var CaltrainFox = {
             time.append(time_str);
 
             var train = $("<div></div>");
+            train.addClass("train");
             if (t.train[0] === "2") {
                 train.addClass("limited");
             } else if (t.train[0] === "3") {
