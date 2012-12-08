@@ -162,13 +162,10 @@ var CaltrainFox = {
     },
 
     update_wd_we_display: function update_wd_we_display() {
-        var sel = $("#schedule_type_selector")[0];
         var cur = $("#schedule_type")[0];
         if (this.is_weekend) {
-            sel.innerHTML = "Weekday";
             cur.innerHTML = "Weekend";
         } else {
-            sel.innerHTML = "Weekend";
             cur.innerHTML = "Weekday";
         }
     },
@@ -253,8 +250,8 @@ var CaltrainFox = {
 
         var events = ["click", "touch"];
         for (var e of events) {
-            $("#reverse_menu").on(e, function() { CaltrainFox.reverse_direction(); });
-            $("#schedule_type_menu").on(e, function() { CaltrainFox.change_schedule_type(); });
+            $("#reverse").on(e, function() { CaltrainFox.reverse_direction(); });
+            $("#schedule_type_selector").on(e, function() { CaltrainFox.change_schedule_type(); });
         }
 
         var selectors = ["#station_from", "#station_to"];
