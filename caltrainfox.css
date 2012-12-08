@@ -93,6 +93,10 @@ div {
     border-bottom: none;
 }
 
+select {
+    width: 10em;
+}
+
 .selectors {
     height: 1.75em;
 }
@@ -111,23 +115,9 @@ div {
     padding-right: .2em;
 }
 
-.menu {
+.reverse {
     border-top: 1px solid #fff;
     height: 1.75em;
-}
-
-.element {
-    height: 100%;
-    display: inline-block;
-    border-right: 1px solid #fff;
     text-align: center;
     padding-top: .25em;
-}
-
-.element:first-child {
-    width: 45%;
-}
-
-.element:last-child {
-    border-right: none;
 }
