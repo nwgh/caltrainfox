@@ -77,6 +77,10 @@ var CaltrainFox = {
     update_stations: function update_stations() {
         this.station_from = parseInt($("#station_from")[0].value);
         this.station_to = parseInt($("#station_to")[0].value);
+
+        localStorage.setItem("station_from", this.station_from);
+        localStorage.setItem("station_to", this.station_to);
+
         this.do_update();
     },
 
@@ -93,6 +97,8 @@ var CaltrainFox = {
             cur.innerHTML = "Weekday";
         }
 
+        localStorage.setItem("is_weekend", this.is_weekend);
+
         this.do_update();
     },
 
@@ -108,6 +114,9 @@ var CaltrainFox = {
 
         station_from.childNodes[this.station_from].selected = true;
         station_to.childNodes[this.station_to].selected = true;
+
+        localStorage.setItem("station_from", this.station_from);
+        localStorage.setItem("station_to", this.station_to);
 
         this.do_update();
     },
