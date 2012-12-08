@@ -69,7 +69,7 @@ var CaltrainFox = {
 
         var trains = this.find_trains(train_list);
         var fare = this.calculate_fare();
-        $("#fare").innerHTML = fare;
+        $("#fare")[0].innerHTML = fare;
         this.populate_timetable(trains);
     },
 
