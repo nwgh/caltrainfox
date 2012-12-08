@@ -23,19 +23,20 @@ div {
 
 .info div {
     height: 100%;
-    width: 45%;
     padding-top: .25em;
     display: inline-block;
 }
 
 .info div:first-child {
-    padding-left: 2em;
+    padding-left: .2em;
     text-align: left;
+    width: 75%;
 }
 
 .info div:last-child {
-    padding-right: 2em;
+    padding-right: .2em;
     text-align: right;
+    width: 15%;
 }
 
 .schedule {
@@ -66,17 +67,18 @@ div {
 .time, .train {
     display: inline-block;
     height: 100%;
-    width: 45%;
 }
 
 .time {
-    padding-left: 2em;
+    padding-left: .2em;
     text-align: left;
+    width: 75%;
 }
 
 .train {
-    padding-right: 2em;
+    padding-right: .2em;
     text-align: right;
+    width: 15%;
 }
 
 .limited {
@@ -97,17 +99,16 @@ div {
 
 .selectors div {
     display: inline-block;
-    width: 45%;
 }
 
 .from {
     text-align: left;
-    padding-left: 2em;
+    padding-left: .2em;
 }
 
 .to {
     text-align: right;
-    padding-right: 2em;
+    padding-right: .2em;
 }
 
 .menu {
@@ -120,8 +121,11 @@ div {
     display: inline-block;
     border-right: 1px solid #fff;
     text-align: center;
-    width: 45%;
     padding-top: .25em;
+}
+
+.element:first-child {
+    width: 45%;
 }
 
 .element:last-child {
