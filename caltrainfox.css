@@ -42,6 +42,7 @@ div {
 .schedule {
     overflow: scroll;
     height: -moz-calc(100% - 5.25em);
+    border-bottom: 1px solid #fff;
 }
 
 .entry {
