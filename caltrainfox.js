@@ -34,15 +34,20 @@ var CaltrainFox = {
 
     populate_timetable: function populate_timetable(trains) {
         // TODO - style this better
+        var schedule = $("#schedule");
         if (trains.length === 0) {
-            $("#schedule").innerHTML = "No Trains Found";
+            schedule.innerHTML = "No Trains Found";
             return;
+        }
+
+        while (schedule[0].firstChild) {
+            schedule[0].removeChild(schedule[0].firstChild);
         }
 
         for (var t of trains) {
             var info = "#" + t["train"] + " l:" + t["stops"][this.station_from] +
                 " a:" + t["stops"][this.station_to] + "<br>";
-            $("#schedule").append(info);
+            schedule.append(info);
         }
     },
 
@@ -70,8 +75,8 @@ var CaltrainFox = {
 
     // The callback for when the user changes one of their station selections
     update_stations: function update_stations() {
-        this.station_from = parseInt($("#station_from").value);
-        this.station_to = parseInt($("#station_to").value);
+        this.station_from = parseInt($("#station_from")[0].value);
+        this.station_to = parseInt($("#station_to")[0].value);
         this.do_update();
     },
 
@@ -93,24 +98,28 @@ var CaltrainFox = {
 
     // The callback for when the user changes train direction
     reverse_direction: function reverse_direction() {
-        this.station_from, this.station_to = this.station_to, this.station_from;
+        [this.station_from, this.station_to] = [this.station_to, this.station_from];
         this.do_update();
+        // TODO - need to update selector view
     },
 
     populate_selectors: function populate_selectors() {
         var selectors = ["#station_from", "#station_to"];
         for (var s of selectors) {
             var selector = $(s);
-            for (var station of stations) {
-                var option = $("<option></option>");
-                option.value = s["id"];
-                option.innerHTML = s["name"];
-                s.append(option);
+            for (var station of this.stations) {
+                var option = $("<option></option>")[0];
+                option.value = station.station_id;
+                option.innerHTML = station.station_name;
+                if ((s === "#station_from" &&
+                     this.station_from == station.station_id) ||
+                    (s === "#station_to" &&
+                     this.station_to === station.station_id)) {
+                    option.selected = true;
+                }
+                selector.append(option);
             }
         }
-
-        $("#station_from").selectedIndex = this.station_from;
-        $("#station_to").selectedIndex = this.station_to;
     },
 
     setup: function setup() {
@@ -143,7 +152,7 @@ var CaltrainFox = {
 
         var events = ["click", "touch"];
         for (var e of events) {
-            $("#reverse_menu").on(e, function() { CaltrainFox.revese_direction(); });
+            $("#reverse_menu").on(e, function() { CaltrainFox.reverse_direction(); });
             $("#schedule_type_menu").on(e, function() { CaltrainFox.change_schedule_type(); });
         }
 

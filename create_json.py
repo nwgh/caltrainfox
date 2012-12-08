@@ -94,11 +94,11 @@ stations = []
 for stopname, stopinfo in stops.iteritems():
     # We want to get rid of the " Caltrain" from each station name, as it's
     # redundant.
-    val = {'name': stopname[:-9]}
-    val.update(stopinfo)
-    stations.append(val)
+    stations.append({'station_name': stopname[:-9],
+                     'station_id': stopinfo['id'],
+                     'zone': stopinfo['zone']})
 
-stations.sort(key=lambda x: x['id'])
+stations.sort(key=lambda x: x['station_id'])
 
 with file('stations.js', 'w') as f:
     f.write('CaltrainFox.stations = %s;\n' % (json.dumps(stations),))
