@@ -83,8 +83,8 @@ var CaltrainFox = {
     // The callback for when the user changes between weekend & weekday
     change_schedule_type: function change_schedule_type() {
         this.is_weekend = !this.is_weekend;
-        var sel = $("#schedule_type_selector");
-        var cur = $("#schedule_type");
+        var sel = $("#schedule_type_selector")[0];
+        var cur = $("#schedule_type")[0];
         if (this.is_weekend) {
             sel.innerHTML = "Weekday";
             cur.innerHTML = "Weekend";
@@ -98,9 +98,14 @@ var CaltrainFox = {
 
     // The callback for when the user changes train direction
     reverse_direction: function reverse_direction() {
+        var station_from = $("#station_from")[0];
+        var station_to = $("#station_to")[0];
+        station_from.childNodes[this.station_from].selected = false;
+        station_to.childNodes[this.station_to].selected = false;
         [this.station_from, this.station_to] = [this.station_to, this.station_from];
+        station_from.childNodes[this.station_from].selected = true;
+        station_to.childNodes[this.station_to].selected = true;
         this.do_update();
-        // TODO - need to update selector view
     },
 
     populate_selectors: function populate_selectors() {
