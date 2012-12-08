@@ -100,11 +100,15 @@ var CaltrainFox = {
     reverse_direction: function reverse_direction() {
         var station_from = $("#station_from")[0];
         var station_to = $("#station_to")[0];
+
         station_from.childNodes[this.station_from].selected = false;
         station_to.childNodes[this.station_to].selected = false;
+
         [this.station_from, this.station_to] = [this.station_to, this.station_from];
+
         station_from.childNodes[this.station_from].selected = true;
         station_to.childNodes[this.station_to].selected = true;
+
         this.do_update();
     },
 
